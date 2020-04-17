@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList} from '
 
 import ItemContatos from './components/ItemContatos';
 import InputContatos from './components/InputContatos';
+import Paletas from './color/Paletas';
+import CardContatos from './components/CardContatos';
+
+
 
 export default function App() {
 
@@ -38,10 +42,13 @@ export default function App() {
         <View><Text style={estilos.titulo}>LISTA</Text></View>
         <FlatList alignItems= {'center'} numColumns={'2'} 
         data = {contatos}renderItem = {contato => (
-          <ItemContatos keys={ contato.item.key}
-          contato = {contato.item.cont}
-          telefone = {contato.item.tel}
-          del={excluir}/>
+            <CardContatos estilos={estilos.itemContatos}>
+            <ItemContatos keys={ contato.item.key}
+              contato = {contato.item.cont}
+              telefone = {contato.item.tel}
+              del={excluir}
+            />
+            </CardContatos>
         )
             
             }>
@@ -55,24 +62,13 @@ export default function App() {
 const estilos = StyleSheet.create({
   tela: {
     padding:10,
-    backgroundColor:'#F8EEE7'
+    backgroundColor: Paletas.planoFundo
 
   },
   titulo: {
     fontSize: 30,
-    marginBottom:20,
-    backgroundColor:'#F8EEE7',
+    marginBottom: 20,
     fontWeight: "bold",
     textAlign: "center",
   },
-  
-
-  /*blocoLista:{
-  flexDirection: "row",
-  
-  borderColor: '#FFFFFF'    
-  },*/
-  
-
-
 });

@@ -1,51 +1,45 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import  Paletas from '../color/Paletas';
+import CardContatos from './CardContatos';
 
 const ItemContatos =(props) => {
 
 return(
     <TouchableOpacity onLongPress={props.del.bind(this, props.keys)}>
     
-            <View   style={estilos.lista}>
-              <Text style={estilos.id}>
-                {'ID: '+props.keys}
-                </Text>
-
-              <Text style={estilos.info}>
-                {'NOME :  '+props.contato}
-                </Text>
-
-              <Text style={estilos.info}>
-                {'TEL  :   '+props.telefone}
-                </Text>
-            </View>
+            <CardContatos  style={estilos.lista}>
+              <Text style={estilos.id}>{'ID: '+props.keys}</Text>
+              <Text>{'NOME :  '+props.contato}</Text>
+              <Text>{'TEL  :   '+props.telefone}</Text>
+            </CardContatos>
             
-            </TouchableOpacity>
+    </TouchableOpacity>
 
 );
 }
 
 const estilos = StyleSheet.create({
-lista: {
+  lista: {
     margin: 2,
     padding: 15,
-    flexDirection: "column",
-    backgroundColor: '#94618B',
     borderRadius: 10,
-    borderColor: '#FFFFFF'
     
-    
+    backgroundColor: Paletas.lista,
+    flexDirection: "column",
+    borderColor: Paletas.branco,
+  
+  },
 
-    },
-    id: {
-      fontSize: 20,
-      marginBottom:0,
-      padding:1,
-      backgroundColor: '#49274A',
-      textAlign: "center",
-      fontWeight: "bold",
-      color: "#FFFFFF"
-    },
+  id: {
+    fontSize: 20,
+    marginBottom:0,      
+    padding:1,
+    backgroundColor: Paletas.id,
+    textAlign: "center",
+    fontWeight: "bold",
+    color: Paletas.branco
+  },
 
 });
 
