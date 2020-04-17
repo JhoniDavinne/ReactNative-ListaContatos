@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Paletas from '../color/Paletas';
+import Dimensoes from '../dimensions/Dimensoes';
 
 const CardContatos = (props) => {
     return (
@@ -10,9 +11,9 @@ const CardContatos = (props) => {
 
 const estilos = StyleSheet.create({
     perfil:{
-        margin: 2,
-        padding: 15,
-        borderRadius: 10,
+        margin: Dimensoes.dois,
+        padding: Dimensoes.cinco,
+        borderRadius: Dimensoes.dez,
 
     },
 });

@@ -5,6 +5,7 @@ import ItemContatos from './components/ItemContatos';
 import InputContatos from './components/InputContatos';
 import Paletas from './color/Paletas';
 import CardContatos from './components/CardContatos';
+import Dimensoes from './dimensions/Dimensoes';
 
 
 
@@ -40,7 +41,7 @@ export default function App() {
           <InputContatos add = {add}/>
           <View>
         <View><Text style={estilos.titulo}>LISTA</Text></View>
-        <FlatList alignItems= {'center'} numColumns={'2'} 
+        <FlatList alignItems= {'center'} numColumns={Dimensoes.dois} 
         data = {contatos}renderItem = {contato => (
             <CardContatos estilos={estilos.itemContatos}>
             <ItemContatos keys={ contato.item.key}
@@ -61,13 +62,13 @@ export default function App() {
 
 const estilos = StyleSheet.create({
   tela: {
-    padding:10,
+    padding:Dimensoes.dez,
     backgroundColor: Paletas.planoFundo
 
   },
   titulo: {
-    fontSize: 30,
-    marginBottom: 20,
+    fontSize: Dimensoes.trinta,
+    marginBottom: Dimensoes.vinte,
     fontWeight: "bold",
     textAlign: "center",
   },
