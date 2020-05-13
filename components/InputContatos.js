@@ -4,11 +4,11 @@ import Paletas from '../color/Paletas';
 import Dimensoes from '../dimensions/Dimensoes';
 
 const InputContatos =(props)=>{
-  /*ELEMENTOS ESTADO */
+ 
   const [contato, setContato]     = useState('');
   const [telefone, setTelefone]   = useState('');
 
-  /*CAPTURAS */
+
   const capturaTelefone = (telefone) =>{setTelefone(telefone);}
   const capturaContato = (contato) =>{setContato(contato);}
 
@@ -18,7 +18,9 @@ const InputContatos =(props)=>{
       <View style = {estilos.cadastro}>
         <TextInput placeholder="Nome" style={estilos.cadastro} maxLength={Dimensoes.dez} onChangeText={capturaContato}value={contato} />
         <TextInput placeholder="(XX) XXXXX - XXXX " keyboardType="number-pad" maxLength={Dimensoes.onze} style={estilos.cadastro} onChangeText={capturaTelefone}value={telefone}/>
-        <Button title="Adicionar"onPress={()=>props.add(contato,telefone)}color={Paletas.id}/>
+        <Button title={props.isEditando ? "Adicionar" :"Adicionar"}onPress={() => {props.onAdicionarContato(contato, telefone)
+          if (!props.isEditando) { setContato('');setTelefone('');}
+        }}color={Paletas.id}/>
       </View>
     );
 

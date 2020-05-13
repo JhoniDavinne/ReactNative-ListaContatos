@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import  Paletas from '../color/Paletas';
-import CardContatos from './CardContatos';
 import Dimensoes from '../dimensions/Dimensoes';
 
 const ItemContatos =(props) => {
 
 return(
-    <TouchableOpacity onLongPress={props.del.bind(this, props.keys)}>
-    
+    <TouchableOpacity onPress={props.onPress.bind(this, props.contato)} onLongPress={props.onDelete.bind(this, props.contato.key)}>    
             <View style={estilos.lista}>
-              <Text style={estilos.id}>{'ID: '+props.keys}</Text>
-              <Text>{'NOME :  '+props.contato}</Text>
-              <Text>{'TEL  :   '+props.telefone}</Text>
+              <Text style={estilos.id}>{'ID: '+props.contato.key}</Text>
+              <Text>{'NOME :  '+ props.contato.contato}</Text>
+              <Text>{'TEL  :   '+ props.contato.telefone}</Text>
             </View>
             
     </TouchableOpacity>
