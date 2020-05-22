@@ -17,5 +17,6 @@ export default {
     cinquenta: 50,
     cem: 100,
     cemp: '100%',
-    zero: 0
+    zero: 0,
+    wi: 340
 };
